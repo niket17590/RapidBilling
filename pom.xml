@@ -9,9 +9,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rapid.qss</groupId>
-	<artifactId>LabBilling</artifactId>
+	<artifactId>RapidBilling</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Lab Billing</name>
+	<name>Rapid Billing</name>
 	<description>Rapid Qss Lab Billing Software</description>
 	<properties>
 		<java.version>17</java.version>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="LOG_ROOT" value="c:/logs" />
+	<property name="LOG_FILE_NAME" value="LabBilling" />
+
+	<appender name="Console"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d [%thread] %-5level %-50logger{40} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="RollingFile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_ROOT}/${LOG_FILE_NAME}.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_ROOT}/${LOG_FILE_NAME}-%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<!-- each archived file's size will be max 5MB -->
+			<maxFileSize>5MB</maxFileSize>
+			<!-- 30 days to keep -->
+			<maxHistory>30</maxHistory>
+			<!-- total size of all archive files, if total size > 700MB, it will delete 
+				old archived file -->
+			<totalSizeCap>700MB</totalSizeCap>
+			<cleanHistoryOnStart>true</cleanHistoryOnStart>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d [%thread] %-5level %-50logger{40} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="Console" />
+		<appender-ref ref="RollingFile" />
+	</root>
+
+	<root level="ERROR">
+		<appender-ref ref="Console" />
+		<appender-ref ref="RollingFile" />
+	</root>
+
+	<logger name="com.rapid.qss" level="INFO" additivity="false">
+		<appender-ref ref="Console" />
+		<appender-ref ref="RollingFile" />
+	</logger>
+</configuration>

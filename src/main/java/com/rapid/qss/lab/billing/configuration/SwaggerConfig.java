@@ -17,8 +17,8 @@ public class SwaggerConfig {
 		Server localServer = new Server().url("http://localhost:8080").description("Localhost Server URL");
 		Contact contact = new Contact().email("niket.agrawal90@gmail.com").name("Niket Agrawal");
 		Info info = new Info().contact(contact).description("Rapid Qss Lab Billing Software")
-				.summary("Rapid Qss Lab Billing Software").title("Rapid Qss Lab Billing")
-				.version("V1.0.0").license(new License().name("Apache 2.0").url("http://springdoc.org"));
+				.summary("Rapid Qss Lab Billing Software").title("Rapid Qss Lab Billing").version("V1.0.0")
+				.license(new License().name("Apache 2.0").url("http://springdoc.org"));
 
 		return new OpenAPI().info(info).addServersItem(localServer);
 	}
